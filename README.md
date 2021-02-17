@@ -6,7 +6,8 @@ Basic plan: ??
 
 Project design: Figma
 
-Project stack: 
+Project stack:
+
 - ReactJS
 - TypeScript
 - Create React App
@@ -17,6 +18,6 @@ Project stack:
 - Pretier
 - Eslint
 - StyledComponent
-- StoryBook
+- StoryBook?
 
 ######
