@@ -6,6 +6,7 @@ interface ButtonProps {
 
 const Button = styled.button<ButtonProps>`
   background-color: ${({ theme }) => theme.colors.blue};
+  background-color: ${({ theme }) => theme.colors.blue};
   color: ${({ theme }) => theme.colors.white};
   border: none;
   width: 200px;
@@ -17,6 +18,7 @@ const Button = styled.button<ButtonProps>`
   &:hover {
     background: transparent;
     color: ${({ theme }) => theme.colors.blue};
+    border: solid 2px ${({ theme }) => theme.colors.blue};
   }
 
   ${({ secondary }) =>
@@ -24,6 +26,7 @@ const Button = styled.button<ButtonProps>`
     css`
       background: transparent;
       color: ${({ theme }) => theme.colors.blue};
+      border: solid 2px ${({ theme }) => theme.colors.blue};
 
       &:hover {
         background: ${({ theme }) => theme.colors.blue};
