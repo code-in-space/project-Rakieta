@@ -5,26 +5,27 @@ interface ButtonProps {
 }
 
 const Button = styled.button<ButtonProps>`
-    background-color: blue;
-    color: white;
+    background-color:${({theme}) => theme.colors.blue};
+    color: ${({theme}) => theme.colors.white};
     border: none;
     width: 200px;
     height: 80px;
     transition: 0.2s;
     margin: 10px;
+    cursor: pointer;
     
     &:hover{
             background: transparent;
-            color: blue
+            color: ${({theme}) => theme.colors.blue};
         }
 
-    ${props => props.secondary && css`
+    ${({secondary}) => secondary && css`
         background: transparent;
-        color: blue;
+        color: ${({theme}) => theme.colors.blue};
 
         &:hover{
-            background: blue;
-            color: white
+            background: ${({theme}) => theme.colors.blue};
+            color: ${({theme}) => theme.colors.white}
         }
     `}
 `;
