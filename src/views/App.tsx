@@ -9,7 +9,6 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <Button>click!</Button>
       <Button secondary>click!</Button>
-      <p>click!</p>
     </ThemeProvider>
   </>
 );
