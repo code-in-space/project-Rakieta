@@ -1,9 +1,9 @@
 import GlobalStyle from '../theme/GlobalStyle';
-import Button from "../components/Button/Button";
+import Button from '../components/Button/Button';
 import { ThemeProvider } from 'styled-components';
 import theme from '../theme/mainTheme';
 
-const App = () => 
+const App = () => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
@@ -12,5 +12,6 @@ const App = () =>
       <p>click!</p>
     </ThemeProvider>
   </>
+);
 
 export default App;
