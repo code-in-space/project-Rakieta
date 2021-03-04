@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
+import Title from '../Title/Title';
 
 interface EventProps {
   date: Date;
-  title: string;
   description: string;
   background?: string;
+  title: string;
 }
 
 interface EventWrapperProps {
@@ -31,6 +32,7 @@ const DateWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   letter-spacing: 1px;
+  font-size: ${({ theme }) => theme.fontSizes.s};
 `;
 
 const DescriptionWrapper = styled.div`
@@ -43,36 +45,27 @@ const DescriptionWrapper = styled.div`
   font-weight: ${({ theme }) => theme.fontWeights.thin};
 `;
 
-const Title = styled.div`
-  margin-bottom: 10px;
-  font-size: ${({ theme }) => theme.fontSizes.l};
-  font-weight: ${({ theme }) => theme.fontWeights.normal};
-  text-transform: uppercase;
-`;
+
 
 const ColoredYear = styled.span`
   color: ${({ theme }) => theme.colors.rose};
 `;
 
-const Event = ({ title, date, description, background }: EventProps) => {
-  const year = date.getFullYear();
-  const month = date.toLocaleDateString().split('/')[1];
-  const day = date.toLocaleDateString().split('/')[0];
-  const time = date.toLocaleTimeString();
+const Event = ({title, description, background }: EventProps) => {
 
   return (
     <EventWrapper background={background}>
       <DateWrapper>
         <div>
-          <ColoredYear>{year}</ColoredYear>/{month}/{day}
+          <ColoredYear>2021</ColoredYear>{' / 02 / 03'}
         </div>
-        <div>{time}</div>
+        <div>20:41:06 GMT</div>
       </DateWrapper>
       <DescriptionWrapper>
-        <Title>{title}</Title>
+        <Title title={title} />
         <div>{description}</div>
       </DescriptionWrapper>
-      <Button size={30}>+</Button>
+      <Button/>
     </EventWrapper>
   );
 };

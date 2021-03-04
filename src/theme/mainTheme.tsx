@@ -50,8 +50,8 @@ const mainTheme: DefaultTheme = {
   },
 
   fontSizes: {
-    s: '10px',
-    m: '12px',
+    s: '12px',
+    m: '14px',
     l: '18px',
   },
 };
