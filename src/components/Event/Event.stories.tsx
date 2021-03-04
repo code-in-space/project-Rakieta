@@ -8,7 +8,7 @@ export default {
   component: Event,
 };
 
-export const Transparent = () => (
+export const BlackBG = () => (
   <ThemeProvider theme={theme}>
     <Event
       date={new Date('2020-02-11T15:30:00Z')}
