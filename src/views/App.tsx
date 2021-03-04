@@ -1,14 +1,22 @@
+import React from 'react';
 import GlobalStyle from '../theme/GlobalStyle';
-import Button from '../components/Button/Button';
 import { ThemeProvider } from 'styled-components';
 import theme from '../theme/mainTheme';
+import Event from '../components/Event/Event';
 
 const App = () => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <Button>click!</Button>
-      <Button secondary>click!</Button>
+      <div style={{ width: '100vw', height: '100vh', background: 'black' }}>
+        <Event
+          date={new Date('2020-02-11T15:30:00Z')}
+          title={'Berthing'}
+          description={
+            "NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
+          }
+        />
+      </div>
     </ThemeProvider>
   </>
 );

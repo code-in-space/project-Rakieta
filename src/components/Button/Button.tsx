@@ -1,38 +1,24 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 interface ButtonProps {
-  secondary?: boolean;
+  icon?: string;
+  size?: number;
 }
 
 const Button = styled.button<ButtonProps>`
-  background-color: ${({ theme }) => theme.colors.blue};
-  background-color: ${({ theme }) => theme.colors.blue};
+  background-color: ${({ theme }) => theme.backgrounds.transparent};
   color: ${({ theme }) => theme.colors.white};
-  border: none;
-  width: 200px;
-  height: 80px;
+  border: ${({ theme }) => theme.borders.main};
+  width: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}px`};
   transition: 0.2s;
   margin: 10px;
   cursor: pointer;
 
   &:hover {
-    background: transparent;
-    color: ${({ theme }) => theme.colors.blue};
-    border: solid 2px ${({ theme }) => theme.colors.blue};
+    background: ${({ theme }) => theme.colors.rose};
+    border: solid 2px ${({ theme }) => theme.colors.rose};
   }
-
-  ${({ secondary }) =>
-    secondary &&
-    css`
-      background: transparent;
-      color: ${({ theme }) => theme.colors.blue};
-      border: solid 2px ${({ theme }) => theme.colors.blue};
-
-      &:hover {
-        background: ${({ theme }) => theme.colors.blue};
-        color: ${({ theme }) => theme.colors.white};
-      }
-    `}
 `;
 
 export default Button;
