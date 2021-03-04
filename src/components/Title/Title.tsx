@@ -1,11 +1,9 @@
 import StyledTitle from './Title.styles';
 
 interface TitleProps {
-    title: string;
-  }
+  title: string;
+}
 
-const Title = ({title}: TitleProps) => (
-    <StyledTitle>{title}</StyledTitle>
-)
+const Title = ({ title }: TitleProps) => <StyledTitle>{title}</StyledTitle>;
 
 export default Title;

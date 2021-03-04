@@ -1,6 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
+import Description from '../Description/Description';
 import Title from '../Title/Title';
 
 interface EventProps {
@@ -45,27 +45,25 @@ const DescriptionWrapper = styled.div`
   font-weight: ${({ theme }) => theme.fontWeights.thin};
 `;
 
-
-
 const ColoredYear = styled.span`
   color: ${({ theme }) => theme.colors.rose};
 `;
 
-const Event = ({title, description, background }: EventProps) => {
-
+const Event = ({ title, description, background }: EventProps) => {
   return (
     <EventWrapper background={background}>
       <DateWrapper>
         <div>
-          <ColoredYear>2021</ColoredYear>{' / 02 / 03'}
+          <ColoredYear>2021</ColoredYear>
+          {' / 02 / 03'}
         </div>
         <div>20:41:06 GMT</div>
       </DateWrapper>
       <DescriptionWrapper>
         <Title title={title} />
-        <div>{description}</div>
+        <Description description={description} />
       </DescriptionWrapper>
-      <Button/>
+      <Button />
     </EventWrapper>
   );
 };
