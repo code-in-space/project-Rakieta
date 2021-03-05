@@ -10,6 +10,7 @@ const App: FC = () => (
         <ThemeProvider theme={theme}>
             <div style={{ width: '100vw', height: '100vh', background: 'black' }}>
                 <Event
+                    eventDate={new Date('2020-02-31T15:30:00Z')}
                     description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
                     title="New Arrive"
                 />

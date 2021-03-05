@@ -8,15 +8,21 @@ export interface EventProps {
     description: string;
     background?: string;
     title: string;
+    eventDate: Date;
 }
 
-const Event: FC<EventProps> = ({ title, description, background }) => {
+const Event: FC<EventProps> = ({ title, description, background, eventDate }) => {
+    const year = eventDate.getFullYear();
+    const month = eventDate.getMonth() + 1;
+    const day = eventDate.getDay();
+    console.log(day);
+
     return (
         <EventWrapper background={background}>
             <DateWrapper>
                 <div>
-                    <ColoredYear>2021</ColoredYear>
-                    {' / 02 / 03'}
+                    <ColoredYear>{year}</ColoredYear>
+                    {` / ${month < 10 ? `0${month}` : month} / ${day < 10 ? `0${day}` : day}`}
                 </div>
                 <div>20:41:06 GMT</div>
             </DateWrapper>

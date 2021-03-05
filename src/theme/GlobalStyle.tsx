@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: inherit;
         font-size: 100%;
         line-height: 1.15;
-        margin: 0;
+       margin: 0;
     }
 `;
 
