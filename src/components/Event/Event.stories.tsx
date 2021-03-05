@@ -17,7 +17,7 @@ export const SignleEvent: FC<EventProps> = () => (
             <Event
                 description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
                 title="title"
-                eventDate={new Date('2020-02-11T15:30:00Z')}
+                eventDate={new Date('2021-03-01T12:05:00Z')}
             />
         </ThemeProvider>
     </>

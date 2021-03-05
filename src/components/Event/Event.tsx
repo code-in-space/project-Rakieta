@@ -14,8 +14,8 @@ export interface EventProps {
 const Event: FC<EventProps> = ({ title, description, background, eventDate }) => {
     const year = eventDate.getFullYear();
     const month = eventDate.getMonth() + 1;
-    const day = eventDate.getDay();
-    console.log(day);
+    const day = eventDate.getDate();
+    console.log(eventDate);
 
     return (
         <EventWrapper background={background}>
