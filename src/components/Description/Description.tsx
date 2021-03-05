@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import StyledDescription from './Description.styles';
 
 interface DescriptionProps {
-  description: string;
+    description: string;
 }
 
-const Description = ({ description }: DescriptionProps) => <StyledDescription>{description}</StyledDescription>;
+const Description: FC<DescriptionProps> = ({ description }) => <StyledDescription>{description}</StyledDescription>;
 
 export default Description;

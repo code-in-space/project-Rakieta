@@ -1,20 +1,20 @@
+import { Meta } from '@storybook/react';
+import { FC } from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme/mainTheme';
-import Event from './Event';
-import React from 'react';
+import Event, { EventProps } from './Event';
 
 export default {
-  title: 'Event',
-  component: Event,
-};
+    title: 'Event',
+    component: Event,
+} as Meta;
 
-export const BlackBG = () => (
-  <ThemeProvider theme={theme}>
-    <Event
-      date={new Date('2020-02-11T15:30:00Z')}
-      background={theme.backgrounds.black}
-      description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-      title="title"
-    />
-  </ThemeProvider>
+export const BlackBG: FC<EventProps> = () => (
+    <ThemeProvider theme={theme}>
+        <Event
+            background={theme.backgrounds.black}
+            description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
+            title="title"
+        />
+    </ThemeProvider>
 );
