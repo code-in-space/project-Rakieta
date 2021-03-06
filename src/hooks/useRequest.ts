@@ -24,7 +24,10 @@ interface Cache<T> {
   [url: string]: T;
 }
 
-type Action<T> = { type: ActionType.REQUEST } | { type: ActionType.SUCCESS; payload: T } | { type: ActionType.FAILURE; payload: string };
+type Action<T> =
+  | { type: ActionType.REQUEST }
+  | { type: ActionType.SUCCESS; payload: T }
+  | { type: ActionType.FAILURE; payload: string };
 
 function useRequest<T = unknown>(url?: string, options?: AxiosRequestConfig): RequestState<T> {
   const cache = useRef<Cache<T>>({});
@@ -78,7 +81,6 @@ function useRequest<T = unknown>(url?: string, options?: AxiosRequestConfig): Re
     return () => {
       cancelRequest.current = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
   return state;

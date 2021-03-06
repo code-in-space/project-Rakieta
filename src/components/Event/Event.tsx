@@ -1,71 +1,40 @@
-import React from 'react';
-import styled from 'styled-components';
+import { FC } from 'react';
 import Button from '../Button/Button';
+import Description from '../Description/Description';
 import Title from '../Title/Title';
+import { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from './Event.styles';
 
-interface EventProps {
-  date: Date;
+export interface EventProps {
   description: string;
   background?: string;
   title: string;
+  eventDate: Date;
 }
 
-interface EventWrapperProps {
-  background?: string;
-}
+const Event: FC<EventProps> = ({ title, description, background, eventDate }) => {
+  const year = eventDate.getUTCFullYear();
+  //getMonth - returns month 0-11 so we need +1 to get right number
+  const month = eventDate.getUTCMonth() + 1;
+  const day = eventDate.getUTCDate();
+  const time = eventDate.toTimeString().slice(0, 8);
 
-const EventWrapper = styled.div<EventWrapperProps>`
-  background-color: ${({ theme, background }) => (background ? background : theme.backgrounds.transparent)};
-  color: ${({ theme }) => theme.colors.white};
-  border: 0.5px solid ${({ theme }) => theme.colors.white};
-  padding: 20px;
-  max-width: 290px;
-  height: 290px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const DateWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  letter-spacing: 1px;
-  font-size: ${({ theme }) => theme.fontSizes.s};
-`;
-
-const DescriptionWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  max-height: 50%;
-  font-size: ${({ theme }) => theme.fontSizes.m};
-  font-weight: ${({ theme }) => theme.fontWeights.thin};
-`;
-
-
-
-const ColoredYear = styled.span`
-  color: ${({ theme }) => theme.colors.rose};
-`;
-
-const Event = ({title, description, background }: EventProps) => {
+  // adding 0 when number of a month or a day is less than 10, ex. 03.04 for march 4th
+  const fullDate = ` / ${month < 10 ? `0${month}` : month} / ${day < 10 ? `0${day}` : day}`;
 
   return (
     <EventWrapper background={background}>
       <DateWrapper>
         <div>
-          <ColoredYear>2021</ColoredYear>{' / 02 / 03'}
+          <ColoredYear>{year}</ColoredYear>
+          {fullDate}
         </div>
-        <div>20:41:06 GMT</div>
+        <div>{`${time} UTC`}</div>
       </DateWrapper>
       <DescriptionWrapper>
         <Title title={title} />
-        <div>{description}</div>
+        <Description description={description} />
       </DescriptionWrapper>
-      <Button/>
+      <Button />
     </EventWrapper>
   );
 };
