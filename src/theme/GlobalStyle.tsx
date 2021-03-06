@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
     select,
     textarea {
         font-family: inherit;
-        font-size: 100%;
+        font-size: 100%; 
         line-height: 1.15;
        margin: 0;
     }

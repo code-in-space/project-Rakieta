@@ -7,22 +7,22 @@ import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
 import { ReactComponent as BurgerIcon } from '../../assets/icons/burger.svg';
 
 export default {
-    title: 'Button',
-    component: StyledButton,
+  title: 'Button',
+  component: StyledButton,
 } as Meta;
 
 export const Add: FC = () => (
-    <ThemeProvider theme={theme}>
-        <StyledButton>
-            <PlusIcon />
-        </StyledButton>
-    </ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <StyledButton>
+      <PlusIcon />
+    </StyledButton>
+  </ThemeProvider>
 );
 
 export const Menu: FC = () => (
-    <ThemeProvider theme={theme}>
-        <StyledButton>
-            <BurgerIcon />
-        </StyledButton>
-    </ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <StyledButton>
+      <BurgerIcon />
+    </StyledButton>
+  </ThemeProvider>
 );
