@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import Description from '../Description/Description';
 import Title from '../Title/Title';
 import { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from './Event.styles';
+import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
 
 export interface EventProps {
   description: string;
@@ -34,7 +35,7 @@ const Event: FC<EventProps> = ({ title, description, background, eventDate }) =>
         <Title title={title} />
         <Description description={description} />
       </DescriptionWrapper>
-      <Button />
+      <Button content="click" />
     </EventWrapper>
   );
 };

@@ -1,11 +1,10 @@
-import { FC } from 'react';
+import { FC, SVGProps, ReactElement } from 'react';
 import StyledButton from './Button.styles';
-import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
 
-const Button: FC = () => (
-  <StyledButton>
-    <PlusIcon />
-  </StyledButton>
-);
+interface ButtonProps {
+  content?: string;
+}
+
+const Button: FC<ButtonProps> = ({ content }) => <StyledButton>{content}</StyledButton>;
 
 export default Button;

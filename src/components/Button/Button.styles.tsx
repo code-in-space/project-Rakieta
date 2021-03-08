@@ -1,21 +1,17 @@
 import styled from 'styled-components';
 
-interface ButtonProps {
-  icon?: string;
-  size?: number;
-}
-
-const StyledButton = styled.button<ButtonProps>`
+const StyledButton = styled.button`
   background-color: ${({ theme }) => theme.backgrounds.transparent};
   color: ${({ theme }) => theme.colors.white};
   border: ${({ theme }) => theme.borders.main};
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
   transition: 0.2s;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 10px;
 
   &:hover {
     background: ${({ theme }) => theme.colors.rose};

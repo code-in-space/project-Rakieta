@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Meta } from '@storybook/react';
-import StyledButton from './Button.styles';
+import Button from './Button';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme/mainTheme';
 import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
@@ -8,21 +8,17 @@ import { ReactComponent as BurgerIcon } from '../../assets/icons/burger.svg';
 
 export default {
   title: 'Button',
-  component: StyledButton,
+  component: Button,
 } as Meta;
 
-export const Add: FC = () => (
+export const Text: FC = () => (
   <ThemeProvider theme={theme}>
-    <StyledButton>
-      <PlusIcon />
-    </StyledButton>
+    <Button content="click!" />
   </ThemeProvider>
 );
 
-export const Menu: FC = () => (
-  <ThemeProvider theme={theme}>
-    <StyledButton>
-      <BurgerIcon />
-    </StyledButton>
-  </ThemeProvider>
-);
+// export const Menu: FC = () => (
+//   <ThemeProvider theme={theme}>
+//     <Button content={BurgerIcon} />
+//   </ThemeProvider>
+// );
