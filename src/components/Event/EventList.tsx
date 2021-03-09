@@ -1,24 +1,35 @@
-import { useEffect, useState } from 'react';
-import useRequest from 'hooks/useRequest';
-import EventItem from 'components/Event/EventItem';
+import { FC } from 'react';
+import useRequest, { RequestStatus } from '../../hooks/useRequest';
+import EventItem from './EventItem';
 import StyledEventListWrapper from './EventList.styles';
-import { API_BASE_URL } from 'environment/constants';
+import { API_BASE_URL } from '../../environment/constants';
 
 interface FetchedData {
-  results?: [date?: string, description?: string, title?: string, event?: number];
+  results: Event[];
 }
 
-const EventList = () => {
-  const [eventsList, setEventsList] = useState();
-  const { status, error, data } = useRequest(`${API_BASE_URL}event/upcoming/`);
+interface Event {
+  date: string;
+  description: string;
+  name: string;
+  id: number;
+}
 
-  console.log(data.results);
+const EventList: FC = () => {
+  const { status, data } = useRequest<FetchedData>(`${API_BASE_URL}event/upcoming/`);
+  const events = data?.results;
 
   return (
     <StyledEventListWrapper>
-      {/* {events.map((event) => (
-        <EventItem eventDate={new Date(event.date)} description={event.description} title={event.name} key={event.id} />
-      ))} */}
+      {status === RequestStatus.FETCHED &&
+        events?.map((event) => (
+          <EventItem
+            eventDate={new Date(event.date)}
+            description={event.description}
+            title={event.name}
+            key={event.id}
+          />
+        ))}
     </StyledEventListWrapper>
   );
 };

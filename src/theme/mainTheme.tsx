@@ -38,7 +38,7 @@ const mainTheme: DefaultTheme = {
 
   borders: {
     main: '1px solid white',
-    hover: '1x solid #E00077',
+    hover: '1px solid #E00077',
   },
 
   backgrounds: {

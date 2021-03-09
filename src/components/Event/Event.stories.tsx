@@ -4,6 +4,7 @@ import GlobalStyle from '../../theme/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme/mainTheme';
 import EventItem, { EventProps } from './EventItem';
+import EventList from './EventList';
 
 export default {
   title: 'Event',
@@ -19,6 +20,15 @@ export const SingleEventItem: FC<EventProps> = () => (
         title="title"
         eventDate={new Date('2021-03-01T12:05:00Z')}
       />
+    </ThemeProvider>
+  </>
+);
+
+export const MultipleEventsList: FC<EventProps> = () => (
+  <>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <EventList />
     </ThemeProvider>
   </>
 );

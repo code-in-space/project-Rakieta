@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import StyledTitle from 'components/Title/Title.styles';
+import StyledTitle from './Title.styles';
 
 interface TitleProps {
   title: string;
