@@ -2,7 +2,8 @@ import { FC } from 'react';
 import Button from '../Button/Button';
 import Description from '../Description/Description';
 import Title from '../Title/Title';
-import { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from './Event.styles';
+import { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from './EventItem.styles';
+import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
 
 export interface EventProps {
   description: string;
@@ -11,7 +12,7 @@ export interface EventProps {
   eventDate: Date;
 }
 
-const Event: FC<EventProps> = ({ title, description, background, eventDate }) => {
+const EventItem: FC<EventProps> = ({ title, description, background, eventDate }) => {
   const year = eventDate.getUTCFullYear();
   //getMonth - returns month 0-11 so we need +1 to get right number
   const month = eventDate.getUTCMonth() + 1;
@@ -34,8 +35,8 @@ const Event: FC<EventProps> = ({ title, description, background, eventDate }) =>
         <Title title={title} />
         <Description description={description} />
       </DescriptionWrapper>
-      <Button />
+      <Button content="click" />
     </EventWrapper>
   );
 };
-export default Event;
+export default EventItem;

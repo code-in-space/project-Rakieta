@@ -1,28 +1,23 @@
 import { FC } from 'react';
 import { Meta } from '@storybook/react';
-import StyledButton from './Button.styles';
+import Button from './Button';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme/mainTheme';
-import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
-import { ReactComponent as BurgerIcon } from '../../assets/icons/burger.svg';
 
 export default {
-  title: 'Button',
-  component: StyledButton,
+  title: 'Buttons',
+  component: Button,
 } as Meta;
 
-export const Add: FC = () => (
-  <ThemeProvider theme={theme}>
-    <StyledButton>
-      <PlusIcon />
-    </StyledButton>
-  </ThemeProvider>
-);
+export const Buttons: FC = () => {
+  const icons = ['burger', 'arr-up', 'arr-down', 'plus'];
 
-export const Menu: FC = () => (
-  <ThemeProvider theme={theme}>
-    <StyledButton>
-      <BurgerIcon />
-    </StyledButton>
-  </ThemeProvider>
-);
+  return (
+    <ThemeProvider theme={theme}>
+      <Button content="click!" />
+      {icons.map((item) => (
+        <Button icon={item} key={item} />
+      ))}
+    </ThemeProvider>
+  );
+};

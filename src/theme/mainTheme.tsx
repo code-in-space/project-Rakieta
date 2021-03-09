@@ -6,6 +6,7 @@ interface DefaultTheme {
 
   borders: {
     main: string;
+    hover: string;
   };
 
   backgrounds: {
@@ -35,6 +36,7 @@ const mainTheme: DefaultTheme = {
 
   borders: {
     main: '0.5px solid white',
+    hover: '0.5px solid #E00077',
   },
 
   backgrounds: {
