@@ -1,9 +1,8 @@
 import { FC } from 'react';
-import Button from '../Button/Button';
-import Description from '../Description/Description';
-import Title from '../Title/Title';
-import { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from './EventItem.styles';
-import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
+import Button from 'components/Button/Button';
+import Description from 'components/Description/Description';
+import Title from 'components/Title/Title';
+import { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from 'components/Event/EventItem.styles';
 
 export interface EventProps {
   description: string;
@@ -23,7 +22,7 @@ const EventItem: FC<EventProps> = ({ title, description, background, eventDate }
   const fullDate = ` / ${month < 10 ? `0${month}` : month} / ${day < 10 ? `0${day}` : day}`;
 
   return (
-    <EventWrapper background={background}>
+    <EventWrapper>
       <DateWrapper>
         <div>
           <ColoredYear>{year}</ColoredYear>
