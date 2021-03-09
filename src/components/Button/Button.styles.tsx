@@ -4,23 +4,25 @@ const StyledButton = styled.button`
   background-color: ${({ theme }) => theme.backgrounds.transparent};
   color: ${({ theme }) => theme.colors.white};
   border: ${({ theme }) => theme.borders.main};
-  min-width: 30px;
-  min-height: 30px;
+  min-width: 35px;
+  min-height: 20px;
   transition: 0.2s;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 10px;
+  padding: 5px 10px;
+  font-size: ${({ theme }) => theme.fontSizes.m};
 
   &:hover {
     background: ${({ theme }) => theme.colors.rose};
-    border: solid 2px ${({ theme }) => theme.colors.rose};
+    border: ${({ theme }) => theme.borders.hover};
   }
 
   svg {
-    width: 19px;
-    height: 19px;
+    width: 15px;
+    height: 15px;
+    margin: 5px 0;
   }
 `;
 

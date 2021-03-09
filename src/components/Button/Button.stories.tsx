@@ -3,8 +3,6 @@ import { Meta } from '@storybook/react';
 import Button from './Button';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../theme/mainTheme';
-import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
-import { ReactComponent as BurgerIcon } from '../../assets/icons/burger.svg';
 
 export default {
   title: 'Button',
@@ -17,8 +15,26 @@ export const Text: FC = () => (
   </ThemeProvider>
 );
 
-// export const Menu: FC = () => (
-//   <ThemeProvider theme={theme}>
-//     <Button content={BurgerIcon} />
-//   </ThemeProvider>
-// );
+export const Menu: FC = () => (
+  <ThemeProvider theme={theme}>
+    <Button icon="burger" />
+  </ThemeProvider>
+);
+
+export const Add: FC = () => (
+  <ThemeProvider theme={theme}>
+    <Button icon="plus" />
+  </ThemeProvider>
+);
+
+export const ArrowUp: FC = () => (
+  <ThemeProvider theme={theme}>
+    <Button icon="arr-up" />
+  </ThemeProvider>
+);
+
+export const ArrowDown: FC = () => (
+  <ThemeProvider theme={theme}>
+    <Button icon="arr-down" />
+  </ThemeProvider>
+);
