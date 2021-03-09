@@ -1,52 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import useRequest from 'hooks/useRequest';
 import EventItem from 'components/Event/EventItem';
 import StyledEventListWrapper from './EventList.styles';
+import { API_BASE_URL } from 'environment/constants';
+
+interface FetchedData {
+  results?: [date?: string, description?: string, title?: string, event?: number];
+}
 
 const EventList = () => {
-  const [event, setEvent] = useState('');
+  const [eventsList, setEventsList] = useState();
+  const { status, error, data } = useRequest(`${API_BASE_URL}event/upcoming/`);
+
+  console.log(data.results);
 
   return (
     <StyledEventListWrapper>
-      <EventItem
-        eventDate={new Date('2021-03-01T12:05:00Z')}
-        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-        title="New Arrive BUILD TEST"
-      />
-      <EventItem
-        eventDate={new Date('2021-03-01T12:05:00Z')}
-        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-        title="New Arrive BUILD TEST"
-      />
-      <EventItem
-        eventDate={new Date('2021-03-01T12:05:00Z')}
-        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-        title="New Arrive BUILD TEST"
-      />
-      <EventItem
-        eventDate={new Date('2021-03-01T12:05:00Z')}
-        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-        title="New Arrive BUILD TEST"
-      />
-      <EventItem
-        eventDate={new Date('2021-03-01T12:05:00Z')}
-        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-        title="New Arrive BUILD TEST"
-      />
-      <EventItem
-        eventDate={new Date('2021-03-01T12:05:00Z')}
-        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-        title="New Arrive BUILD TEST"
-      />
-      <EventItem
-        eventDate={new Date('2021-03-01T12:05:00Z')}
-        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-        title="New Arrive BUILD TEST"
-      />
-      <EventItem
-        eventDate={new Date('2021-03-01T12:05:00Z')}
-        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
-        title="New Arrive BUILD TEST"
-      />
+      {/* {events.map((event) => (
+        <EventItem eventDate={new Date(event.date)} description={event.description} title={event.name} key={event.id} />
+      ))} */}
     </StyledEventListWrapper>
   );
 };
