@@ -5,9 +5,11 @@ import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
 import { ReactComponent as ArrowUpIcon } from '../../assets/icons/arrow-up.svg';
 import { ReactComponent as ArrowDownIcon } from '../../assets/icons/arrow-down.svg';
 
+type ButtonIcon = 'burger' | 'plus' | 'arr-up' | 'arr-down';
+
 interface ButtonProps {
   content?: string;
-  icon?: string;
+  icon?: ButtonIcon;
 }
 
 const Button: FC<ButtonProps> = ({ content, icon }) => (
