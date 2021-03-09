@@ -13,6 +13,7 @@ const StyledButton = styled.button`
   align-items: center;
   padding: 5px 10px;
   font-size: ${({ theme }) => theme.fontSizes.m};
+  margin: 5px;
 
   &:hover {
     background: ${({ theme }) => theme.colors.rose};

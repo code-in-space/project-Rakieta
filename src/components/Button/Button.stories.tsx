@@ -5,36 +5,19 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../../theme/mainTheme';
 
 export default {
-  title: 'Button',
+  title: 'Buttons',
   component: Button,
 } as Meta;
 
-export const Text: FC = () => (
-  <ThemeProvider theme={theme}>
-    <Button content="click!" />
-  </ThemeProvider>
-);
+export const Buttons: FC = () => {
+  const icons = ['burger', 'arr-up', 'arr-down', 'plus'];
 
-export const Menu: FC = () => (
-  <ThemeProvider theme={theme}>
-    <Button icon="burger" />
-  </ThemeProvider>
-);
-
-export const Add: FC = () => (
-  <ThemeProvider theme={theme}>
-    <Button icon="plus" />
-  </ThemeProvider>
-);
-
-export const ArrowUp: FC = () => (
-  <ThemeProvider theme={theme}>
-    <Button icon="arr-up" />
-  </ThemeProvider>
-);
-
-export const ArrowDown: FC = () => (
-  <ThemeProvider theme={theme}>
-    <Button icon="arr-down" />
-  </ThemeProvider>
-);
+  return (
+    <ThemeProvider theme={theme}>
+      <Button content="click!" />
+      {icons.map((item) => (
+        <Button icon={item} key={item} />
+      ))}
+    </ThemeProvider>
+  );
+};
