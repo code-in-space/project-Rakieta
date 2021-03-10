@@ -21,6 +21,14 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
   // adding 0 when number of a month or a day is less than 10, ex. 03.04 for march 4th
   const fullDate = ` / ${month < 10 ? `0${month}` : month} / ${day < 10 ? `0${day}` : day}`;
 
+  //limit character length to the "limit" signs for description (if containts more than "limit")
+  const limit = 110;
+  const cuttedDescription = description.length > limit ? description.substring(0, limit) : description;
+  //then trimming to the last full word (if cutted)
+  const trimmedDescription = cuttedDescription
+    ? `${cuttedDescription.substring(0, cuttedDescription.lastIndexOf(' '))}...`
+    : description;
+
   return (
     <EventWrapper>
       <DateWrapper>
@@ -32,7 +40,7 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
       </DateWrapper>
       <DescriptionWrapper>
         <Title title={title} />
-        <Description description={description} />
+        <Description description={trimmedDescription} />
       </DescriptionWrapper>
       <Button content="click" />
     </EventWrapper>
