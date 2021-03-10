@@ -3,6 +3,8 @@ import useRequest, { RequestStatus } from '../../hooks/useRequest';
 import EventItem from './EventItem';
 import StyledEventListWrapper from './EventList.styles';
 import { API_BASE_URL } from '../../environment/constants';
+import Loader from 'react-loader-spinner';
+import theme from '../../theme/mainTheme';
 
 interface FetchedData {
   results: Event[];
@@ -21,6 +23,9 @@ const EventList: FC = () => {
 
   return (
     <StyledEventListWrapper>
+      {status === RequestStatus.FETCHING && (
+        <Loader type="RevolvingDot" color={theme.colors.rose} height={100} width={100} />
+      )}
       {status === RequestStatus.FETCHED &&
         events?.map((event) => (
           <EventItem
