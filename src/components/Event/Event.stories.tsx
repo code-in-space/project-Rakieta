@@ -24,6 +24,18 @@ export const SingleEventItem: FC<EventProps> = () => (
   </>
 );
 
+export const SingleEventItemNoData: FC<EventProps> = () => (
+  <>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <EventItem
+        description="NASA TV will livestream the rendezvous and capture of Northrop Grumman's NG-15 Cygnus cargo craft to the International Space Station."
+        title="title"
+      />
+    </ThemeProvider>
+  </>
+);
+
 export const MultipleEventsList: FC<EventProps> = () => (
   <>
     <GlobalStyle />

@@ -17,7 +17,7 @@ interface Event {
 
 const EventList: FC = () => {
   const { status, data } = useRequest<FetchedData>(`${API_BASE_URL}event/upcoming/`);
-  const events = data?.results;
+  const events = data ? data.results : null;
 
   return (
     <StyledEventListWrapper>

@@ -8,18 +8,18 @@ export interface EventProps {
   description: string;
   background?: string;
   title: string;
-  eventDate: Date;
+  eventDate?: Date;
 }
 
 const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
-  const year = eventDate.getUTCFullYear();
+  const year = eventDate ? eventDate.getUTCFullYear() : null;
   //getMonth - returns month 0-11 so we need +1 to get right number
-  const month = eventDate.getUTCMonth() + 1;
-  const day = eventDate.getUTCDate();
-  const time = eventDate.toTimeString().slice(0, 8);
+  const month = eventDate ? eventDate.getUTCMonth() + 1 : null;
+  const day = eventDate ? eventDate.getUTCDate() : null;
+  const time = eventDate ? eventDate.toTimeString().slice(0, 8) : null;
 
   // adding 0 when number of a month or a day is less than 10, ex. 03.04 for march 4th
-  const fullDate = ` / ${month < 10 ? `0${month}` : month} / ${day < 10 ? `0${day}` : day}`;
+  const fullDate = eventDate ? ` / ${month! < 10 ? `0${month}` : month} / ${day! < 10 ? `0${day}` : day}` : null;
 
   //limit character length to the "limit" signs for description (if containts more than "limit")
   const limit = 110;
@@ -31,18 +31,27 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
 
   return (
     <EventWrapper>
-      <DateWrapper>
-        <div>
-          <ColoredYear>{year}</ColoredYear>
-          {fullDate}
-        </div>
-        <div>{`${time} UTC`}</div>
-      </DateWrapper>
+      {eventDate ? (
+        <DateWrapper>
+          <div>
+            <ColoredYear>{year}</ColoredYear>
+            {fullDate}
+          </div>
+          <div>{`${time} UTC`}</div>
+        </DateWrapper>
+      ) : (
+        <DateWrapper>
+          <div>
+            {`We don't know the date`}
+            <ColoredYear>{` yet...`}</ColoredYear>
+          </div>
+        </DateWrapper>
+      )}
       <DescriptionWrapper>
         <Title title={title} />
         <Description description={trimmedDescription} />
       </DescriptionWrapper>
-      <Button content="click" />
+      <Button content="details" />
     </EventWrapper>
   );
 };
