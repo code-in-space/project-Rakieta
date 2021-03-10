@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
 export const PagesWrapper = styled.div`
-  padding: 50px 200px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
