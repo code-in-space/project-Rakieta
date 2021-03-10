@@ -10,7 +10,7 @@ export default {
 } as Meta;
 
 export const Buttons: FC = () => {
-  const icons = ['burger', 'arr-up', 'arr-down', 'plus'];
+  const icons = ['burger', 'cross', 'arr-up', 'arr-down', 'plus'];
 
   return (
     <ThemeProvider theme={theme}>
