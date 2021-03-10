@@ -6,7 +6,6 @@ import { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from '../E
 
 export interface EventProps {
   description?: string;
-  background?: string;
   title?: string;
   eventDate?: Date;
 }
@@ -44,6 +43,7 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
           <div>{`${time} UTC`}</div>
         </DateWrapper>
       ) : (
+        // conditional rendering when there is no date
         <DateWrapper>
           <div>
             {`We don't know the date`}
@@ -51,8 +51,12 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
           </div>
         </DateWrapper>
       )}
+
       <DescriptionWrapper>
+        {/* conditional rendering when there is no title */}
         <Title title={title || 'No Name Event :('} />
+
+        {/* conditional rendering when there is no description */}
         <Description description={trimmedDescription || 'There are no words to describe this epic event!'} />
       </DescriptionWrapper>
       <Button content="details" />
