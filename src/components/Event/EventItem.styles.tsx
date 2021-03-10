@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
-interface EventWrapperProps {
-  background?: string;
-}
-
-const EventWrapper = styled.div<EventWrapperProps>`
-  background-color: ${({ theme, background }) => (background ? background : theme.backgrounds.transparent)};
+const EventWrapper = styled.div`
+  background-color: ${({ theme }) => theme.backgrounds.transparent};
   color: ${({ theme }) => theme.colors.white};
   border: 0.5px solid ${({ theme }) => theme.colors.white};
   padding: 20px;
@@ -15,6 +11,8 @@ const EventWrapper = styled.div<EventWrapperProps>`
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  margin-left: -1px;
+  margin-top: -1px;
 `;
 
 const DateWrapper = styled.div`

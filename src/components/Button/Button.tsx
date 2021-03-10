@@ -7,7 +7,7 @@ import { ReactComponent as ArrowDownIcon } from '../../assets/icons/arrow-down.s
 
 type ButtonIcon = 'burger' | 'plus' | 'arr-up' | 'arr-down' | string;
 
-interface ButtonProps {
+export interface ButtonProps {
   content?: string;
   icon?: ButtonIcon;
 }

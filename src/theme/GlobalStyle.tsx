@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: 'Lato', sans-serif;
+        background-color: black;
     }
 
     button,

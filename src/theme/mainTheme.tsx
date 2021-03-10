@@ -2,6 +2,7 @@ interface DefaultTheme {
   colors: {
     white: string;
     rose: string;
+    black: string;
   };
 
   borders: {
@@ -32,11 +33,12 @@ const mainTheme: DefaultTheme = {
   colors: {
     white: 'white',
     rose: '#E00077',
+    black: '#000',
   },
 
   borders: {
-    main: '0.5px solid white',
-    hover: '0.5px solid #E00077',
+    main: '1px solid white',
+    hover: '1px solid #E00077',
   },
 
   backgrounds: {
