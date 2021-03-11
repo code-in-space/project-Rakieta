@@ -9,7 +9,7 @@ import { EventsPage } from '../components/templates/Events/EventsPage';
 import { HomePage } from '../components/templates/Home/HomePage';
 import { Header } from '../components/organisms/Header/Header';
 
-const App: FC = () => (
+const Root: FC = () => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
@@ -34,4 +34,4 @@ const App: FC = () => (
   </>
 );
 
-export default App;
+export default Root;
