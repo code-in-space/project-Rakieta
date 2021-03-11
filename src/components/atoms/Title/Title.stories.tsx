@@ -6,33 +6,16 @@ import theme from '../../../theme/mainTheme';
 import Title from '../../atoms/Title/Title';
 
 export default {
-  title: 'Title',
+  title: 'Titles',
   component: Title,
 } as Meta;
 
-export const SingleTitleItem: FC = () => (
+export const Titles: FC = () => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <Title title="Lorem ipsum dolor sit amet consectetur" />
+      <Title title="standard title" />
+      <Title title="title with props hero" hero />
     </ThemeProvider>
   </>
 );
-
-// export const SingleTitleItemNoData: FC<TitleProps> = () => (
-//   <>
-//     <GlobalStyle />
-//     <ThemeProvider theme={theme}>
-//       <TitleItem />
-//     </ThemeProvider>
-//   </>
-// );
-
-// export const MultipleTitlesList: FC<TitleProps> = () => (
-//   <>
-//     <GlobalStyle />
-//     <ThemeProvider theme={theme}>
-//       <TitleList />
-//     </ThemeProvider>
-//   </>
-// );
