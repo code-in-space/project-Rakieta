@@ -6,6 +6,7 @@ interface StyledTitleProps {
 
 const StyledTitle = styled.div<StyledTitleProps>`
   margin-bottom: 10px;
+  color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fontSizes.l};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
   text-transform: uppercase;
@@ -13,7 +14,6 @@ const StyledTitle = styled.div<StyledTitleProps>`
   ${({ hero }) =>
     hero &&
     css`
-      color: ${({ theme }) => theme.colors.white};
       font-size: ${({ theme }) => theme.fontSizes.xxl};
       font-weight: ${({ theme }) => theme.fontWeights.bold};
       letter-spacing: 6px;

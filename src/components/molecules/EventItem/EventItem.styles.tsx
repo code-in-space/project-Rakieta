@@ -1,8 +1,7 @@
 import styled from 'styled-components';
+import StyledDescription from '../../atoms/Description/Description.styles';
 
-const EventWrapper = styled.div`
-  background-color: ${({ theme }) => theme.backgrounds.transparent};
-  color: ${({ theme }) => theme.colors.white};
+export const EventWrapper = styled.div`
   border: 0.5px solid ${({ theme }) => theme.colors.white};
   padding: 20px;
   max-width: 290px;
@@ -15,26 +14,25 @@ const EventWrapper = styled.div`
   margin-top: -1px;
 `;
 
-const DateWrapper = styled.div`
+export const FullDateWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  letter-spacing: 1px;
-  font-size: ${({ theme }) => theme.fontSizes.s};
 `;
 
-const DescriptionWrapper = styled.div`
+export const DateWrapper = styled.div`
+  display: flex;
+`;
+
+export const DescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   max-height: 50%;
-  font-size: ${({ theme }) => theme.fontSizes.m};
-  font-weight: ${({ theme }) => theme.fontWeights.thin};
 `;
 
-const ColoredYear = styled.span`
+export const ColoredYear = styled(StyledDescription)`
   color: ${({ theme }) => theme.colors.rose};
+  font-size: ${({ theme }) => theme.fontSizes.s};
 `;
-
-export { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear };
