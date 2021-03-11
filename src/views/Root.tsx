@@ -8,7 +8,6 @@ import { ErrorPage } from '../components/templates/Error/ErrorPage';
 import { EventsPage } from '../components/templates/Events/EventsPage';
 import { HomePage } from '../components/templates/Home/HomePage';
 import { Header } from '../components/organisms/Header/Header';
-import StyledRootWrapper from './Root.styles';
 
 const App: FC = () => (
   <>
@@ -16,22 +15,20 @@ const App: FC = () => (
     <ThemeProvider theme={theme}>
       <Router>
         <Header />
-        <StyledRootWrapper>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route path="/events">
-              <EventsPage />
-            </Route>
-            <Route path="/contact">
-              <ContactPage />
-            </Route>
-            <Route path="*">
-              <ErrorPage />
-            </Route>
-          </Switch>
-        </StyledRootWrapper>
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route path="/events">
+            <EventsPage />
+          </Route>
+          <Route path="/contact">
+            <ContactPage />
+          </Route>
+          <Route path="*">
+            <ErrorPage />
+          </Route>
+        </Switch>
       </Router>
     </ThemeProvider>
   </>

@@ -17,6 +17,7 @@ const StyledTitle = styled.div<StyledTitleProps>`
       font-size: ${({ theme }) => theme.fontSizes.xxl};
       font-weight: ${({ theme }) => theme.fontWeights.bold};
       letter-spacing: 6px;
+      max-width: 680px;
     `};
 `;
 

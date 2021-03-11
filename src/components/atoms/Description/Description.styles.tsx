@@ -14,7 +14,6 @@ const StyledDescription = styled.div<StyledDescriptionProps>`
       color: ${({ theme }) => theme.colors.white};
       font-size: ${({ theme }) => theme.fontSizes.xl};
       font-weight: ${({ theme }) => theme.fontWeights.normal};
-      margin-top: 20px;
     `};
 `;
 
