@@ -10,6 +10,7 @@ const StyledEventPageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 50px 30px;
 `;
 
 export default StyledEventPageWrapper;

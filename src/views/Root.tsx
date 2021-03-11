@@ -8,27 +8,30 @@ import { ErrorPage } from '../components/templates/Error/ErrorPage';
 import { EventsPage } from '../components/templates/Events/EventsPage';
 import { HomePage } from '../components/templates/Home/HomePage';
 import { Header } from '../components/organisms/Header/Header';
+import { StyledContentWrapper } from './Root.styles';
 
 const Root: FC = () => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/events">
-            <EventsPage />
-          </Route>
-          <Route path="/contact">
-            <ContactPage />
-          </Route>
-          <Route path="*">
-            <ErrorPage />
-          </Route>
-        </Switch>
+        <StyledContentWrapper>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route path="/events">
+              <EventsPage />
+            </Route>
+            <Route path="/contact">
+              <ContactPage />
+            </Route>
+            <Route path="*">
+              <ErrorPage />
+            </Route>
+          </Switch>
+        </StyledContentWrapper>
       </Router>
     </ThemeProvider>
   </>

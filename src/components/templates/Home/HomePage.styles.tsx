@@ -9,6 +9,7 @@ export const HomePageContainer = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
+  padding: 50px 30px;
 `;
 
 export const HomePageBody = styled.div`
