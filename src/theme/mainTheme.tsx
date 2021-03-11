@@ -26,6 +26,8 @@ interface DefaultTheme {
     s: string;
     m: string;
     l: string;
+    xl: string;
+    xxl: string;
   };
 }
 
@@ -57,6 +59,8 @@ const mainTheme: DefaultTheme = {
     s: '12px',
     m: '14px',
     l: '18px',
+    xl: '20px',
+    xxl: '60px',
   },
 };
 
