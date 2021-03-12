@@ -7,7 +7,7 @@ import EventItem, { EventProps } from '../../molecules/EventItem/EventItem';
 import EventList from './EventList';
 
 export default {
-  title: 'Event',
+  title: 'Events',
   component: EventItem,
 } as Meta;
 
