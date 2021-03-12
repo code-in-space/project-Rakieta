@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Button from '../../atoms/Button/Button';
 import Description from '../../atoms/Description/Description';
 import Title from '../../atoms/Title/Title';
-import { EventWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from './EventItem.styles';
+import { EventWrapper, FullDateWrapper, DateWrapper, DescriptionWrapper, ColoredYear } from './EventItem.styles';
 
 export interface EventProps {
   description?: string;
@@ -35,20 +35,18 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
   return (
     <EventWrapper>
       {eventDate ? (
-        <DateWrapper>
-          <div>
-            <ColoredYear>{year}</ColoredYear>
-            {fullDate}
-          </div>
-          <div>{`${time} UTC`}</div>
-        </DateWrapper>
+        <FullDateWrapper>
+          <DateWrapper>
+            <Description description={`${year}`} date year />
+            <Description description={`${fullDate}`} date />
+          </DateWrapper>
+          <Description description={`${time} UTC`} date />
+        </FullDateWrapper>
       ) : (
         // conditional rendering when there is no date
         <DateWrapper>
-          <div>
-            {`We don't know the date`}
-            <ColoredYear>{` yet...`}</ColoredYear>
-          </div>
+          <Description description={`We don't know the date`} date />
+          <ColoredYear>{` yet...`}</ColoredYear>
         </DateWrapper>
       )}
 

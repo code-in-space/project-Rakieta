@@ -4,10 +4,12 @@ import StyledDescription from './Description.styles';
 interface DescriptionProps {
   description: string;
   hero?: boolean;
+  date?: boolean;
+  year?: boolean;
 }
 
-const Description: FC<DescriptionProps> = ({ description, hero }) => (
-  <StyledDescription hero={hero}>{description}</StyledDescription>
+const Description: FC<DescriptionProps> = ({ description, ...props }) => (
+  <StyledDescription {...props}>{description}</StyledDescription>
 );
 
 export default Description;

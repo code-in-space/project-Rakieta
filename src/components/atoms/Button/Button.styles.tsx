@@ -20,6 +20,10 @@ const StyledButton = styled.button`
     border: ${({ theme }) => theme.borders.hover};
   }
 
+  &:focus {
+    outline: none;
+  }
+
   svg {
     width: 15px;
     height: 15px;
