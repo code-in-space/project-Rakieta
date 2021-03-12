@@ -3,29 +3,21 @@ import { Meta } from '@storybook/react';
 import GlobalStyle from '../../../theme/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../../theme/mainTheme';
-import { Header } from '../../organisms/Header/Header';
+import BurgerMenu from '../../molecules/BurgerMenu/BurgerMenu';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 export default {
-  title: 'Headers',
-  component: Header,
-  // added some styles for better view at storybook
-  decorators: [
-    (Story) => (
-      <div style={{ position: 'absolute', left: '0', top: '0' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  title: 'Burger Menus',
+  component: BurgerMenu,
 } as Meta;
 
-export const Headers: FC = () => (
+export const BurgerMenus: FC = () => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Router>
         <Route>
-          <Header />
+          <BurgerMenu />
         </Route>
       </Router>
     </ThemeProvider>
