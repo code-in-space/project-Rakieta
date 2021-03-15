@@ -12,35 +12,40 @@ interface FetchedData {
 
 interface Event {
   date: string;
+  net: string;
   description: string;
   name: string;
-  id: number;
+  id: number | string;
 }
 
 const EventList: FC = () => {
-  const [events, setEvents] = useState<Event[] | null>(null);
-  const { status, data } = useRequest<FetchedData>(`${API_BASE_URL}event/upcoming/`);
+  const [allEvents, setAllEvents] = useState<Event[] | null | undefined>(null);
 
-  useEffect(() => {
-    const isEvent: Event[] | null = data ? data.results : null;
-    setEvents(isEvent);
-  }, [events]);
+  const events = useRequest<FetchedData>(`${API_BASE_URL}event/upcoming/`);
+  const launches = useRequest<FetchedData>(`${API_BASE_URL}launch/upcoming/`);
+
+  const createEventsList = async () => {
+    const allData = events.data?.results;
+    await launches.data?.results.map((launch) => {
+      // launches from API do not have "date" but "net" so we create key "date" to unify all data
+      launch.date = launch['net'];
+      // launches also do not have "descrption" so we create key "description" to unify all data
+      launch.description = 'Launching Event 🚀';
+      // avoiding repetition in data
+      allData?.indexOf(launch) === -1 && allData?.push(launch);
+    });
+    await setAllEvents(allData);
+  };
+
+  createEventsList();
+  console.log(allEvents);
 
   return (
     <StyledEventListWrapper>
-      {status === RequestStatus.FETCHING && (
-        <Loader type="RevolvingDot" color={theme.colors.rose} height={100} width={100} />
-      )}
-      {status === RequestStatus.FETCHED && events
-        ? events.map((event) => (
-            <EventItem
-              eventDate={new Date(event.date)}
-              description={event.description}
-              title={event.name}
-              key={event.id}
-            />
-          ))
-        : null}
+      {allEvents === null && <Loader type="RevolvingDot" color={theme.colors.rose} height={100} width={100} />}
+      {allEvents?.map((event) => (
+        <EventItem eventDate={new Date(event.date)} description={event.description} title={event.name} key={event.id} />
+      ))}
     </StyledEventListWrapper>
   );
 };

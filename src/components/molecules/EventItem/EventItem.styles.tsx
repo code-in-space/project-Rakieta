@@ -4,7 +4,7 @@ import StyledDescription from '../../atoms/Description/Description.styles';
 export const EventWrapper = styled.div`
   border: 0.5px solid ${({ theme }) => theme.colors.white};
   padding: 20px;
-  max-width: 290px;
+  width: 290px;
   height: 290px;
   display: flex;
   justify-content: space-between;
