@@ -18,18 +18,10 @@ const Root: FC = () => (
         <StyledContentWrapper>
           <Header />
           <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route path="/events">
-              <EventsPage />
-            </Route>
-            <Route path="/contact">
-              <ContactPage />
-            </Route>
-            <Route path="*">
-              <ErrorPage />
-            </Route>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/events" component={EventsPage} />
+            <Route path="/contact" component={ContactPage} />
+            <Route path="*" component={ErrorPage} />
           </Switch>
         </StyledContentWrapper>
       </Router>
