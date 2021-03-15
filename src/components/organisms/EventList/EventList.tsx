@@ -27,10 +27,12 @@ const EventList: FC = () => {
   const createEventsList = async () => {
     const allData = events.data?.results;
     await launches.data?.results.map((launch) => {
-      // launches from API do not have "date" but "net" so we create key "date" to unify all data
+      // launches from API do not have key "date" but "net" so we create key "date" based on "net" to unify all data
       launch.date = launch['net'];
+
       // launches also do not have "descrption" so we create key "description" to unify all data
       launch.description = 'Launching Event 🚀';
+
       // avoiding repetition in data
       allData?.indexOf(launch) === -1 && allData?.push(launch);
     });
