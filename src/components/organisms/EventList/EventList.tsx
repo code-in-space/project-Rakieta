@@ -46,8 +46,6 @@ const EventList: FC<EventListProps> = () => {
         // conditional rendering "load more" button
         allData!.length > eventsListLength ? setShowButton(true) : setShowButton(false);
 
-        console.log(eventsListLength);
-
         const trimedData = allData?.slice(0, eventsListLength);
         setAllEvents(trimedData);
       });
