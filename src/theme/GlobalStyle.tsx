@@ -8,11 +8,13 @@ const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         margin: 0;
         padding: 0;
+        
     }
 
     body {
         font-family: 'Lato', sans-serif;
         background-color: black;
+        overflow-x: hidden;
     }
 
     button,

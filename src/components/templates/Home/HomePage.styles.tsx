@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bg from '../../../assets/spacex-bg.png';
+import bg from '../../../assets/spacex-bg.jpg';
 
 export const HomePageContainer = styled.div`
   background: url(${bg});

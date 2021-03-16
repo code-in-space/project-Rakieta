@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const StyledButton = styled.button`
+interface StyledButtonProps {
+  marginTop?: boolean;
+}
+
+const StyledButton = styled.button<StyledButtonProps>`
   background-color: ${({ theme }) => theme.backgrounds.transparent};
   color: ${({ theme }) => theme.colors.white};
   border: ${({ theme }) => theme.borders.main};
@@ -14,6 +18,12 @@ const StyledButton = styled.button`
   padding: 5px 10px;
   font-size: ${({ theme }) => theme.fontSizes.s};
   margin: 5px;
+
+  ${({ marginTop }) =>
+    marginTop &&
+    css`
+      margin-top: 20px;
+    `};
 
   &:hover {
     background: ${({ theme }) => theme.colors.rose};

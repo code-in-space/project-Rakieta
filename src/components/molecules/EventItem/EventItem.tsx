@@ -22,15 +22,11 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
 
   //limit character length to the "limit" signs for description (if containts more than "limit")
   const limit = 90;
-  const cuttedDescription = description
-    ? description.length > limit
-      ? description!.substring(0, limit)
-      : description
-    : null;
+  const cuttedDescription = description ? description.length > limit && description!.substring(0, limit) : null;
   //then trimming to the last full word (if cutted)
   const trimmedDescription = cuttedDescription
     ? `${cuttedDescription.substring(0, cuttedDescription.lastIndexOf(' '))}...`
-    : description;
+    : null;
 
   return (
     <EventWrapper>
@@ -55,7 +51,9 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
         <Title title={title || 'No Name Event :('} />
 
         {/* conditional rendering when there is no description */}
-        <Description description={trimmedDescription || 'There are no words to describe this epic event!'} />
+        <Description
+          description={trimmedDescription || description || 'There are no words to describe this epic event!'}
+        />
       </DescriptionWrapper>
       <Button content="details" />
     </EventWrapper>
