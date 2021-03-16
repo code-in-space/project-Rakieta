@@ -5,6 +5,11 @@ import StyledEventListWrapper from './EventList.styles';
 import { API_BASE_URL } from '../../../environment/constants';
 import Loader from 'react-loader-spinner';
 import theme from '../../../theme/mainTheme';
+import Button from '../../atoms/Button/Button';
+
+interface EventListProps {
+  loadMoreItems?: void;
+}
 
 interface FetchedData {
   results: Event[];
@@ -18,10 +23,13 @@ interface Event {
   id: number | string;
 }
 
-const EventList: FC = () => {
+const EventList: FC<EventListProps> = () => {
   const [allEvents, setAllEvents] = useState<Event[] | null | undefined>(null);
+  const [eventsListLength, setEventsListLength] = useState(8);
+  const [showButton, setShowButton] = useState(false);
   const events = useRequest<FetchedData>(`${API_BASE_URL}event/upcoming/`);
   const launches = useRequest<FetchedData>(`${API_BASE_URL}launch/upcoming/`);
+
   useEffect(() => {
     if (events.status === RequestStatus.FETCHED && launches.status === RequestStatus.FETCHED) {
       const allData = events.data?.results;
@@ -30,24 +38,43 @@ const EventList: FC = () => {
         launch.date = launch['net'];
 
         // launches also do not have "descrption" so we create key "description" to unify all data
-        launch.description = 'Launching Event 🚀';
+        launch.description = '🚀 LAUNCHING EVENT! 🚀';
 
         // avoiding repetition in data
         allData?.indexOf(launch) === -1 && allData?.push(launch);
+
+        // conditional rendering "load more" button
+        allData!.length > eventsListLength ? setShowButton(true) : setShowButton(false);
+
+        console.log(eventsListLength);
+
+        const trimedData = allData?.slice(0, eventsListLength);
+        setAllEvents(trimedData);
       });
-      setAllEvents(allData);
     }
-  }, [events.status, launches.status]);
+  }, [events.status, launches.status, eventsListLength]);
+
+  const loadMoreItems = () => {
+    setEventsListLength(eventsListLength + 8);
+  };
 
   return (
-    <StyledEventListWrapper>
-      {(events.status === RequestStatus.FETCHING || launches.status === RequestStatus.FETCHING) && (
-        <Loader type="RevolvingDot" color={theme.colors.rose} height={100} width={100} />
-      )}
-      {allEvents?.map((event) => (
-        <EventItem eventDate={new Date(event.date)} description={event.description} title={event.name} key={event.id} />
-      ))}
-    </StyledEventListWrapper>
+    <>
+      <StyledEventListWrapper>
+        {(events.status === RequestStatus.FETCHING || launches.status === RequestStatus.FETCHING) && (
+          <Loader type="RevolvingDot" color={theme.colors.rose} height={100} width={100} />
+        )}
+        {allEvents?.map((event) => (
+          <EventItem
+            eventDate={new Date(event.date)}
+            description={event.description}
+            title={event.name}
+            key={event.id}
+          />
+        ))}
+      </StyledEventListWrapper>
+      {showButton && <Button content="load more..." onClick={loadMoreItems} />}
+    </>
   );
 };
 

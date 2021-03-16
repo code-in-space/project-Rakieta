@@ -3,14 +3,15 @@ import bg from '../../../assets/events-bg.png';
 
 const StyledEventPageWrapper = styled.div`
   background: url(${bg});
-  background-size: cover;
+  /* background-size: cover; */
   background-position: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 50px 30px;
+  justify-content: center;
+  padding: 170px 30px;
 `;
 
 export default StyledEventPageWrapper;
