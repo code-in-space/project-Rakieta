@@ -7,9 +7,9 @@ import Description from '../../atoms/Description/Description';
 export const HomePage: FC = () => (
   <HomePageContainer>
     <HomePageBody>
-      <Title title="dont't miss any space event" hero />
+      <Title hero>{"dont't miss any space event"}</Title>
       <StyledLink to="/events">
-        <Description description="Check all uppcoming events and add it to your private calendar!" hero />
+        <Description hero>{'Check all uppcoming events 🚀 and add it to your private calendar!'}</Description>
       </StyledLink>
     </HomePageBody>
   </HomePageContainer>

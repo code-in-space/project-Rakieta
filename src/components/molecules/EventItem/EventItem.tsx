@@ -33,29 +33,29 @@ const EventItem: FC<EventProps> = ({ title, description, eventDate }) => {
       {eventDate ? (
         <FullDateWrapper>
           <DateWrapper>
-            <Description description={`${year}`} date year />
-            <Description description={`${fullDate}`} date />
+            <Description date year>{`${year}`}</Description>
+            <Description date>{`${fullDate}`}</Description>
           </DateWrapper>
-          <Description description={`${time} UTC`} date />
+          <Description date>{`${time} UTC`}</Description>
         </FullDateWrapper>
       ) : (
         // conditional rendering when there is no date
         <DateWrapper>
-          <Description description={`We don't know the date`} date />
+          <Description date>{`We don't know the date`}</Description>
           <ColoredYear>{` yet...`}</ColoredYear>
         </DateWrapper>
       )}
 
       <DescriptionWrapper>
         {/* conditional rendering when there is no title */}
-        <Title title={title || 'No Name Event :('} />
+        <Title>{title || 'No Name Event :('}</Title>
 
         {/* conditional rendering when there is no description */}
-        <Description
-          description={trimmedDescription || description || 'There are no words to describe this epic event!'}
-        />
+        <Description>
+          {trimmedDescription || description || 'There are no words to describe this epic event!'}
+        </Description>
       </DescriptionWrapper>
-      <Button content="details" />
+      <Button>{'details'}</Button>
     </EventWrapper>
   );
 };

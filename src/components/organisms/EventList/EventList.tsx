@@ -71,7 +71,7 @@ const EventList: FC<EventListProps> = () => {
           />
         ))}
       </StyledEventListWrapper>
-      {showButton && <Button content="load more..." onClick={loadMoreItems} />}
+      {showButton && <Button onClick={loadMoreItems}>{'load more...'}</Button>}
     </>
   );
 };

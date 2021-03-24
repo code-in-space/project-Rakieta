@@ -14,13 +14,13 @@ export const Descriptions: FC = () => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <Description description="This is standard description" />
+      <Description>{'This is standard description'}</Description>
       <br />
-      <Description description="This is standard description with props hero" hero />
+      <Description hero>{'This is standard description with props hero'}</Description>
       <br />
-      <Description description="This is standard description with props date" date />
+      <Description date>{'This is standard description with props date'}</Description>
       <br />
-      <Description description="This is standard description with props year" year />
+      <Description year>{'This is standard description with props year'}</Description>
     </ThemeProvider>
   </>
 );

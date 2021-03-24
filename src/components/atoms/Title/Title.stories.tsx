@@ -14,8 +14,8 @@ export const Titles: FC = () => (
   <>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <Title title="standard title" />
-      <Title title="title with props hero" hero />
+      <Title>{'standard title'}</Title>
+      <Title hero>{'title with props hero'}</Title>
     </ThemeProvider>
   </>
 );

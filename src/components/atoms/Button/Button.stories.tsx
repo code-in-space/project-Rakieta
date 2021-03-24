@@ -14,7 +14,7 @@ export const Buttons: FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Button content="click!" />
+      <Button>{'click!'}</Button>
       {icons.map((item) => (
         <Button icon={item} key={item} />
       ))}

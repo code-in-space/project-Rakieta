@@ -13,9 +13,11 @@ export const ErrorPage: FC = () => {
 
   return (
     <ErrorPageWrapper>
-      <Title title="apollo 404" hero />
-      <Description description="Okay, Houston, we've had a problem here... that page isn’t exist." hero />
-      <Button content="back to previous page" marginTop onClick={backToPreviousPage} />
+      <Title hero>{'apollo 404'}</Title>
+      <Description hero>{"Okay, Houston, we've had a problem here... that page isn’t exist."}</Description>
+      <Button marginTop onClick={backToPreviousPage}>
+        {'back to previous page'}
+      </Button>
     </ErrorPageWrapper>
   );
 };
