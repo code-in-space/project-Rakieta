@@ -9,15 +9,15 @@ import { ReactComponent as CrossIcon } from '../../../assets/icons/cross.svg';
 type ButtonIcon = 'burger' | 'plus' | 'arr-up' | 'arr-down' | string;
 
 export interface ButtonProps {
-  content?: string;
+  children?: string;
   icon?: ButtonIcon;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   marginTop?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({ content, icon, onClick, marginTop }) => (
+const Button: FC<ButtonProps> = ({ children, icon, onClick, marginTop }) => (
   <StyledButton marginTop={marginTop} onClick={onClick}>
-    {content ||
+    {children ||
       (() => {
         switch (icon) {
           case 'burger':

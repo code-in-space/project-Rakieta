@@ -19,7 +19,7 @@ export const Links: FC = () => (
       <Router>
         <Route>
           <StyledLink to="#">
-            <Description description="Sample link without styles" hero />
+            <Description hero>{'Sample link without styles'}</Description>
           </StyledLink>
         </Route>
       </Router>

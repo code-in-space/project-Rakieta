@@ -4,6 +4,6 @@ import Title from '../../atoms/Title/Title';
 
 export const ContactPage: FC = () => (
   <ContactPageWrapper>
-    <Title title="Contact Page" hero />
+    <Title hero>{'Contact Page'}</Title>
   </ContactPageWrapper>
 );
