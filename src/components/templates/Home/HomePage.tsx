@@ -9,7 +9,7 @@ export const HomePage: FC = () => (
     <HomePageBody>
       <Title hero>{"dont't miss any space event"}</Title>
       <StyledLink to="/events">
-        <Description hero>{'Check all uppcoming events and add it to your private calendar!'}</Description>
+        <Description hero>{'Check all uppcoming events 🚀 and add it to your private calendar!'}</Description>
       </StyledLink>
     </HomePageBody>
   </HomePageContainer>
