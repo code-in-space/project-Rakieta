@@ -2,10 +2,11 @@
 
 API: https://lldev.thespacedevs.com 
 Launch Library: https://ll.thespacedevs.com/2.2.0/
+Actual Demo: https://code-in-space.netlify.app/
 
-Basic plan: Use modern ReactJS to create a RWD web page where you can check uppcoming and past space events add it to your private calendar.
+Basic plan: Using modern ReactJS to create for fun a RWD web page where you can check uppcoming and past space events add it to your private calendar.
 
-Project design: Adobe Xd
+Project design: Figma
 
 Project stack:
 
