@@ -14,10 +14,11 @@ export interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   marginTop?: boolean;
   secondary?: boolean;
+  scroll?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({ children, icon, onClick, marginTop, secondary }) => (
-  <StyledButton marginTop={marginTop} onClick={onClick} secondary={secondary}>
+const Button: FC<ButtonProps> = ({ children, icon, onClick, marginTop, secondary, scroll }) => (
+  <StyledButton marginTop={marginTop} onClick={onClick} secondary={secondary} scroll={scroll}>
     {children ||
       (() => {
         switch (icon) {
