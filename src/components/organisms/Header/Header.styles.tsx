@@ -7,5 +7,5 @@ export const HeaderWrapper = styled.div`
   padding: 50px 30px;
   width: 100%;
   max-width: 1460px;
-  position: fixed;
+  position: absolute;
 `;

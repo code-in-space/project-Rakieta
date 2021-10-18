@@ -31,6 +31,10 @@ const mainTheme: DefaultTheme = {
     xl: '20px',
     xxl: '60px',
   },
+
+  mediaQueries: {
+    mobile: '576px',
+  },
 };
 
 export default mainTheme;
