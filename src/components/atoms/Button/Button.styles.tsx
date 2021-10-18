@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components';
 
 interface StyledButtonProps {
   marginTop?: boolean;
+  secondary?: boolean;
+  scroll?: boolean;
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -39,6 +41,36 @@ const StyledButton = styled.button<StyledButtonProps>`
     height: 15px;
     margin: 5px 0;
   }
+
+  ${({ secondary }) =>
+    secondary &&
+    css`
+      background-color: ${({ theme }) => theme.colors.rose};
+      border: ${({ theme }) => theme.borders.hover};
+
+      &:hover {
+        background-color: ${({ theme }) => theme.backgrounds.transparent};
+        border: ${({ theme }) => theme.borders.main};
+      }
+
+      &:focus {
+        outline: none;
+      }
+    `};
+
+  ${({ scroll }) =>
+    scroll &&
+    css`
+      position: fixed;
+      bottom: 50px;
+      right: 100px;
+      max-height: 35px;
+
+      &:hover {
+        padding-bottom: 20px;
+        transition: 0.2;
+      }
+    `};
 `;
 
 export default StyledButton;

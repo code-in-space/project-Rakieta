@@ -6,7 +6,11 @@ const StyledEventListWrapper = styled.section`
   max-width: 1160px;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+
+  @media (max-width: ${({ theme }) => theme.mediaQueries.mobile}) {
+    justify-content: center;
+  }
 `;
 
 export default StyledEventListWrapper;

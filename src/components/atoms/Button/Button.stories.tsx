@@ -16,8 +16,17 @@ export const Buttons: FC = () => {
     <ThemeProvider theme={theme}>
       <Button>{'click!'}</Button>
       {icons.map((item) => (
-        <Button icon={item} key={item} />
+        <>
+          <Button icon={item} key={item} />
+        </>
       ))}
+      <Button secondary>{'click!'}</Button>
+      {icons.map((item) => (
+        <>
+          <Button icon={item} key={`${item}-secondary`} secondary />
+        </>
+      ))}
+      <Button icon={'arr-up'} secondary scroll />
     </ThemeProvider>
   );
 };

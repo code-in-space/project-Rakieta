@@ -1,4 +1,4 @@
-import { FC, useState, useRef, useEffect, ReactEventHandler, SyntheticEvent } from 'react';
+import { FC, useState, useRef, useEffect } from 'react';
 import Button from '../../atoms/Button/Button';
 import { MenuWrapper } from './BurgerMenu.styles';
 import { NavLink } from 'react-router-dom';
@@ -40,7 +40,7 @@ const BurgerMenu: FC = () => {
   }, []);
 
   return (
-    <MenuWrapper onClick={(e) => e.stopPropagation()} ref={ref}>
+    <MenuWrapper onClick={(e) => e.stopPropagation()} ref={ref} opened={opened}>
       {opened && links}
       <Button icon={opened ? 'cross' : 'burger'} onClick={() => setOpened(!opened)} />
     </MenuWrapper>
